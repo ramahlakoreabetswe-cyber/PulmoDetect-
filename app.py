@@ -121,7 +121,7 @@ with tab2:
     Please visit the National Department of Health, Mayo Clinic or Centers for Disease Control and Prevention websites for more information regarding Tuberculosis.""")
 
 with tab3:
-    st.header("Credts")
+    st.header("Credits")
     st.info("""
 TB Risk Screening Tool
 Created for Tritech 2026
