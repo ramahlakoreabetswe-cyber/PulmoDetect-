@@ -134,10 +134,6 @@ Built with: Python + Tkinter
 
 Scoring based on WHO TB Guidelines
 
-Special Thanks:
-
-The Programmers Realm - Youtube Channel
-
 Disclaimer: This is an educational tool only.
 Not a substitute for professional medical diagnosis.
 
