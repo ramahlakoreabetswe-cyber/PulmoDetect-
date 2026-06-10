@@ -137,7 +137,7 @@ Scoring based on WHO TB Guidelines
 Disclaimer: This is an educational tool only.
 Not a substitute for professional medical diagnosis.
 
-\u00A9 MycoDetect""")
+\u00A9 PulmoDetect""")
                                        
 # Exit button at bottom
 st.divider()
