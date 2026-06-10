@@ -1,11 +1,11 @@
 import streamlit as st
 
 # Page setup
-st.set_page_config(page_title="MycoDetect", layout="centered")
+st.set_page_config(page_title="PulmoDetect", layout="centered"
 
 
 # Title + Credits
-st.title("MycoDetect: TB Risk Screening")
+st.title("PulmoDetect: TB Risk Screening")
 st.caption("Developed by: Reabetswe")
          
 # Tabs = your menu bar
