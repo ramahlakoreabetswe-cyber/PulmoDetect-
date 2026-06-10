@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Page setup
-st.set_page_config(page_title="PulmoDetect", layout="centered"
+st.set_page_config(page_title="PulmoDetect", layout="centered")
 
 
 # Title + Credits
