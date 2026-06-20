@@ -6,10 +6,17 @@ from datetime import datetime
 st.set_page_config(page_title="PulmoDetect", layout="centered")
 # Connect to Airtable
 airtable = Table(
-    st.secrets["AIRTABLE_TOKEN"], 
-    st.secrets["AIRTABLE_BASE_ID"], 
+    st.secrets["AIRTABLE_TOKEN"],
+    st.secrets["AIRTABLE_BASE_ID"],
     "Predictions"
 )
+
+st.write("Testing Airtable connection...")
+try:
+    airtable.create({"Timestamp": "debug_test", "Region": "Tzaneen"})
+    st.success("SUCCESS: Airtable write worked! Delete this debug code now.")
+except Exception as e:
+    st.error(f"REAL ERROR: {e}")
 
 # Title + Credits
 st.title("PulmoDetect: TB Risk Screening")
