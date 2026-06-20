@@ -61,16 +61,15 @@ with col2:
         
 if st.button("calculate My Risk", type="primary"):
         
-        else:
-            score = sum([coughing, constant_cough_2weeks, fever, sweats, weight, fatigue, chest_pain, blood_or_sputum, appetite, contact])
+    score = sum([coughing, constant_cough_2weeks, fever, sweats, weight, fatigue, chest_pain, blood_or_sputum, appetite, contact])
             st.divider()
-            if score == 0:
+    if score == 0:
                  st.success(f"You reported no TB symptoms. Keep monitoring your health.")
-            elif score >= 20:
+    elif score >= 20:
                 st.warning(f"HIGH RISK!! Please visit a clinic for TB screening as soon as possible")
-            elif score >=10:
+    elif score >=10:
                 st.warning(f"Moderate risk. Although you are not at high risk, you should pay attention to any new symptoms that may develop or consider visiting a clinic for TB testing.")
-            else:
+    else:
                  st.warning(f"Low risk. Stay aware :)")
             
             st.caption("Disclaimer: This is not a medical diagnosis. Please consult a healthcare professional for TB testing and advice")
