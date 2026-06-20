@@ -14,26 +14,31 @@ tab1, tab2, tab3 = st.tabs(["Risk Screening", "What is TB?", "Credits"])
 with tab1:
     st.header("TB Risk Screening")
     st.subheader("Which region are you from?")
-    region_options = [
-         "Polokwane",
-         "Tzaneen",
-         "Makhado", 
-         "Thohoyandou",
-         "Lephalale",
-         "Burgersfort"
-    [
 
-    region = st.radio(
-         "Select your region:",
-         options=region_options + ["other"],
-         index=None
-    )
+# 9 Limpopo regions with Tzaneen included
+region_options = [
+    "Polokwane",
+    "Tzaneen", 
+    "Makhado",
+    "Thohoyandou",
+    "Lephalale",
+    "Burgersfort",
+    "Groblersdal",
+    "Giyani",
+    "Mokopane"
+]
 
-    if region == "Other": 
-         other_region = 
-    st.text_input("Please specify your region")
-         region = other_region if 
-    other_region else "Other" 
+region = st.radio(
+    "Select your region in Limpopo:",
+    options=region_options + ["Other"],
+    index=None,
+    key="region_select"  # Adding key prevents widget reset issues
+)
+
+# Show text box only if "Other" is picked
+if region == "Other":
+    other_region = st.text_input("Please specify your region:")
+    region = other_region if other_region.strip() else "Other"
              
          
     st.subheader("Tick all symptoms that apply:")
