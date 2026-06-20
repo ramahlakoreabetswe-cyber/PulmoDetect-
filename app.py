@@ -13,9 +13,9 @@ airtable = Table(
        "Predictions"
    )
    
-   region = st.selectbox("Select your region in Limpopo:", ["Tzaneen", "Polokwane", "Giyani", "Thohoyandou", "Mokopane"])
+region = st.selectbox("Select your region in Limpopo:", ["Tzaneen", "Polokwane", "Giyani", "Thohoyandou", "Mokopane"])
    
-   if st.button("Submit Region"):
+if st.button("Submit Region"):
        try:
            airtable.create({
                "Timestamp": datetime.now().isoformat(),
