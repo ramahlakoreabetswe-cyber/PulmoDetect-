@@ -62,7 +62,7 @@ with col2:
 if st.button("calculate My Risk", type="primary"):
         
     score = sum([coughing, constant_cough_2weeks, fever, sweats, weight, fatigue, chest_pain, blood_or_sputum, appetite, contact])
-            st.divider()
+    st.divider()
     if score == 0:
                  st.success(f"You reported no TB symptoms. Keep monitoring your health.")
     elif score >= 20:
