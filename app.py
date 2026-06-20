@@ -13,16 +13,6 @@ airtable = Table(
        "Predictions"
    )
    
-   
-if st.button("Submit Region"):
-       try:
-           airtable.create({
-               "Timestamp": datetime.now().isoformat(),
-               "Region": region
-           })
-           st.success("Region logged anonymously. Thank you!")
-       except:
-           st.error("Could not log. Check Airtable setup.")
 
 
 # Title + Credits
@@ -51,7 +41,7 @@ region_options = [
 ]
 
 region = st.radio(
-    "Select your region in Limpopo:",
+    "Select your region:",
     options=region_options + ["Other"],
     index=None,
     key="region_select"  # Adding key prevents widget reset issues
@@ -69,7 +59,7 @@ if region:  # only show if they picked a region
                 "Timestamp": str(datetime.now()),
                 "Region": region
             })
-            st.success(f"Thanks! Logged: {region}")
+            st.success(f"Thank you! Anoymously Logged: {region}")
         except Exception as e:
             st.error("Could not log. Check Airtable setup.")             
          
