@@ -14,7 +14,6 @@ tab1, tab2, tab3 = st.tabs(["Risk Screening", "What is TB?", "Credits"])
 with tab1:
     st.header("TB Risk Screening")
     st.subheader("Which region are you from?")
-    st.caption("No personal data will be stored")
 
 # 9 Limpopo regions with Tzaneen included
 region_options = [
@@ -43,7 +42,7 @@ if region == "Other":
              
          
 st.subheader("Tick all symptoms that apply:")
-st.caption("No personal data is will be stored.)
+st.caption("No personal data is will be stored.")
 col1, col2 = st.columns(2)
     
     # 25-point total system
