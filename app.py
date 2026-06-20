@@ -5,7 +5,7 @@ from datetime import datetime
 # Page setup
 st.set_page_config(page_title="PulmoDetect", layout="centered")
 # Connect to Airtable
-   from datetime import datetime
+   
    
    airtable = Table(
        st.secrets["AIRTABLE_TOKEN"],
