@@ -13,7 +13,11 @@ tab1, tab2, tab3 = st.tabs(["Risk Screening", "What is TB?", "Credits"])
          
 with tab1:
     st.header("TB Risk Screening")
+    import csv
+    from datetime import datetime 
+    import os 
     st.subheader("Which region are you from?")
+    st.caption("No personal data will be stored. Region selection used for anonymous usage stats only.")
 
 # 9 Limpopo regions with Tzaneen included
 region_options = [
@@ -39,6 +43,15 @@ region = st.radio(
 if region == "Other":
     other_region = st.text_input("Please specify your region:")
     region = other_region if other_region.strip() else "Other"
+
+if region and region != "Other" and "region_logged" not in st.session_state:
+    file_exists = os.path.isfile("stats.csv")
+    with open("stats.csv", "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(["date", "region"]) 
+        writer.writerow([datetime.now().strftime("%Y-%m-%d"), region])
+    st.session_state.region_logged = True
              
          
 st.subheader("Tick all symptoms that apply:")
