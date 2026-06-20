@@ -7,7 +7,7 @@ st.set_page_config(page_title="PulmoDetect", layout="centered")
 # Connect to Airtable
    
    
-   airtable = Table(
+airtable = Table(
        st.secrets["AIRTABLE_TOKEN"],
        st.secrets["AIRTABLE_BASE_ID"],
        "Predictions"
