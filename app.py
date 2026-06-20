@@ -72,7 +72,7 @@ if st.button("calculate My Risk", type="primary"):
     else:
                  st.warning(f"Low risk. Stay aware :)")
             
-            st.caption("Disclaimer: This is not a medical diagnosis. Please consult a healthcare professional for TB testing and advice")
+    st.caption("Disclaimer: This is not a medical diagnosis. Please consult a healthcare professional for TB testing and advice")
 
 with tab2:
     st.header("What is TB?")
