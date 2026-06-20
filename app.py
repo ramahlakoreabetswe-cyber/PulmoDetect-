@@ -59,8 +59,8 @@ if region:  # only show if they picked a region
                 "Timestamp": str(datetime.now()),
                 "Region": region
             })
-            st.success(f"Thank you! Anoymously Logged: {region}")
-        except Exception as e:
+            st.success(f"Region successfully logged. Thank you")
+       except Exception as e:
             st.error("Could not log. Check Airtable setup.")             
          
 st.subheader("Tick all symptoms that apply:")
