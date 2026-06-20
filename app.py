@@ -5,18 +5,26 @@ from datetime import datetime
 # Page setup
 st.set_page_config(page_title="PulmoDetect", layout="centered")
 # Connect to Airtable
-airtable = Table(
-    st.secrets["AIRTABLE_TOKEN"],
-    st.secrets["AIRTABLE_BASE_ID"],
-    "Predictions"
-)
+   from datetime import datetime
+   
+   airtable = Table(
+       st.secrets["AIRTABLE_TOKEN"],
+       st.secrets["AIRTABLE_BASE_ID"],
+       "Predictions"
+   )
+   
+   region = st.selectbox("Select your region in Limpopo:", ["Tzaneen", "Polokwane", "Giyani", "Thohoyandou", "Mokopane"])
+   
+   if st.button("Submit Region"):
+       try:
+           airtable.create({
+               "Timestamp": datetime.now().isoformat(),
+               "Region": region
+           })
+           st.success("Region logged anonymously. Thank you!")
+       except:
+           st.error("Could not log. Check Airtable setup.")
 
-st.write("Testing Airtable connection...")
-try:
-    airtable.create({"Timestamp": "debug_test", "Region": "Tzaneen"})
-    st.success("SUCCESS: Airtable write worked! Delete this debug code now.")
-except Exception as e:
-    st.error(f"REAL ERROR: {e}")
 
 # Title + Credits
 st.title("PulmoDetect: TB Risk Screening")
