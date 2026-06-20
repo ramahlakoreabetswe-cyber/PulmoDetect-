@@ -60,7 +60,7 @@ if region:  # only show if they picked a region
                 "Region": region
             })
             st.success(f"Region successfully logged. Thank you")
-       except Exception as e:
+        except Exception as e:
             st.error("Could not log. Check Airtable setup.")             
          
 st.subheader("Tick all symptoms that apply:")
