@@ -13,7 +13,28 @@ tab1, tab2, tab3 = st.tabs(["Risk Screening", "What is TB?", "Credits"])
          
 with tab1:
     st.header("TB Risk Screening")
-    name = st.text_input("Enter your name:")
+    st.subheader("Which region are you from?")
+    region_options = [
+         "Polokwane",
+         "Tzaneen",
+         "Makhado", 
+         "Thohoyandou",
+         "Lephalale",
+         "Burgersfort"
+    [
+
+    region = st.radio(
+         "Select your region:",
+         options=region_options + ["other"],
+         index=None
+    )
+
+    if region == "Other": 
+         other_region = 
+    st.text_input("Please specify your region")
+         region = other_region if 
+    other_region else "Other" 
+             
          
     st.subheader("Tick all symptoms that apply:")
     col1, col2 = st.columns(2)
