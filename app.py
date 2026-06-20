@@ -43,36 +43,36 @@ if region == "Other":
              
          
 st.subheader("Tick all symptoms that apply:")
+st.caption("No personal data is will be stored.)
 col1, col2 = st.columns(2)
     
     # 25-point total system
 with col1:
-                 coughing = 2 if st.checkbox("Coughing") else 0
-                 constant_cough_2weeks = 4 if st.checkbox("Constant cough for 2 weeks or more") else 0 
-                 fever = 2 if st.checkbox("Fever") else 0
-                 sweats = 2 if st.checkbox("Night sweats") else 0
-                 weight = 2 if st.checkbox("Unexplained weight loss") else 0
+    coughing = 2 if st.checkbox("Coughing") else 0
+    constant_cough_2weeks = 4 if st.checkbox("Constant cough for 2 weeks or more") else 0 
+    fever = 2 if st.checkbox("Fever") else 0
+    sweats = 2 if st.checkbox("Night sweats") else 0
+    weight = 2 if st.checkbox("Unexplained weight loss") else 0
 with col2:
-                 fatigue = 1 if st.checkbox("Tiredness or fatigue") else 0
-                 chest_pain = 2 if st.checkbox("Often experience chest pain") else 0
-                 blood_or_sputum = 4 if st.checkbox("Coughing up blood or sputum") else 0
-                 appetite = 2 if st.checkbox("Loss of appetite") else 0
-                 contact = 4 if st.checkbox("Had recent contact with someone infected with TB") else 0
+    fatigue = 1 if st.checkbox("Tiredness or fatigue") else 0
+    chest_pain = 2 if st.checkbox("Often experience chest pain") else 0
+    blood_or_sputum = 4 if st.checkbox("Coughing up blood or sputum") else 0
+    appetite = 2 if st.checkbox("Loss of appetite") else 0
+    contact = 4 if st.checkbox("Had recent contact with someone infected with TB") else 0
         
-    if st.button("calculate My Risk", type="primary"):
-        if not name:
-                 st.error("Please enter your name first.")
+if st.button("calculate My Risk", type="primary"):
+        
         else:
             score = sum([coughing, constant_cough_2weeks, fever, sweats, weight, fatigue, chest_pain, blood_or_sputum, appetite, contact])
             st.divider()
             if score == 0:
-                 st.success(f"{name}, you reported no TB symptoms. Keep monitoring your health.")
+                 st.success(f"You reported no TB symptoms. Keep monitoring your health.")
             elif score >= 20:
-                st.warning(f"{name}, you have {score} points. HIGH RISK. Go to a clinic immediately!!")
+                st.warning(f"HIGH RISK!! Please visit a clinic for TB screening as soon as possible")
             elif score >=10:
-                st.warning(f"{name}, you have {score} points. Moderate risk. Although you are not at high risk, you should pay attention to any new symptoms that may develop or consider visiting a clinic for TB testing.")
+                st.warning(f"Moderate risk. Although you are not at high risk, you should pay attention to any new symptoms that may develop or consider visiting a clinic for TB testing.")
             else:
-                 st.warning(f"{name}, you have {score} points. Low risk. Stay aware :)")
+                 st.warning(f"Low risk. Stay aware :)")
             
             st.caption("Disclaimer: This is not a medical diagnosis. Please consult a healthcare professional for TB testing and advice")
 
