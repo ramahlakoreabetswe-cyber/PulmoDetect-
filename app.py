@@ -1,8 +1,15 @@
 import streamlit as st
+from pyairtable import Table
+from datetime import datetime
 
 # Page setup
 st.set_page_config(page_title="PulmoDetect", layout="centered")
-
+# Connect to Airtable
+airtable = Table(
+    st.secrets["AIRTABLE_TOKEN"], 
+    st.secrets["AIRTABLE_BASE_ID"], 
+    "Predictions"
+)
 
 # Title + Credits
 st.title("PulmoDetect: TB Risk Screening")
@@ -40,7 +47,17 @@ region = st.radio(
 if region == "Other":
     other_region = st.text_input("Please specify your region:")
     region = other_region if other_region.strip() else "Other"
-             
+# Log button
+if region:  # only show if they picked a region
+    if st.button("Submit Region"):
+        try:
+            airtable.create({
+                "Timestamp": str(datetime.now()),
+                "Region": region
+            })
+            st.success(f"Thanks! Logged: {region}")
+        except Exception as e:
+            st.error("Could not log. Check Airtable setup.")             
          
 st.subheader("Tick all symptoms that apply:")
 st.caption("No personal data is will be stored.")
