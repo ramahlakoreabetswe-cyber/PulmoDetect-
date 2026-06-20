@@ -14,6 +14,7 @@ tab1, tab2, tab3 = st.tabs(["Risk Screening", "What is TB?", "Credits"])
 with tab1:
     st.header("TB Risk Screening")
     st.subheader("Which region are you from?")
+    st.caption("No personal data will be stored")
 
 # 9 Limpopo regions with Tzaneen included
 region_options = [
