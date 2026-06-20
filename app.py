@@ -164,8 +164,4 @@ Not a substitute for professional medical diagnosis.
 
 \u00A9 PulmoDetect""")
                                        
-# Exit button at bottom
-st.divider()
-if st.button("Exit PulmoDetect", type="secondary"):
-    st.success("Thank you for using MycoDetect! You can now close this browser tab.")
-    st.stop()
+
