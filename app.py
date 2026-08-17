@@ -86,9 +86,9 @@ if st.button("calculate My Risk", type="primary"):
     score = sum([coughing, constant_cough_3weeks, fever, sweats, weight, fatigue, chest_pain, blood, appetite, contact])
     red_flag = False
     if blood == 6: 
-    red_flag = True
-    st.error("🚨 RED FLAG: Coughing up blood detected")
-    st.write("This requires immediate medical attention regardless of other symptoms.")
+        red_flag = True
+        st.error("🚨 RED FLAG: Coughing up blood detected")
+        st.write("This requires immediate medical attention regardless of other symptoms.")
     st.subheader(f"Your total score: {score}/35")
     st.divider()
     if score == 0:
