@@ -84,11 +84,16 @@ with col2:
 if st.button("calculate My Risk", type="primary"):
         
     score = sum([coughing, constant_cough_3weeks, fever, sweats, weight, fatigue, chest_pain, blood, appetite, contact])
+    red_flag = False
+    if blood == 6: 
+    red_flag = True
+    st.error("🚨 RED FLAG: Coughing up blood detected")
+    st.write("This requires immediate medical attention regardless of other symptoms.")
     st.subheader(f"Your total score: {score}/35")
     st.divider()
     if score == 0:
                  st.success(f"You reported no TB symptoms. Keep monitoring your health.")
-    elif score >=23:
+    elif red_flag or score >=23:
                 st.warning(f"HIGH RISK!! Please visit a clinic for TB screening as soon as possible")
     elif score >=12:
                 st.warning(f"Moderate risk. Keep monitoring and retest if symptoms change or consider visiting a clinic for TB testing.")
