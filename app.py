@@ -85,7 +85,7 @@ if st.button("calculate My Risk", type="primary"):
         
     score = sum([coughing, constant_cough_3weeks, fever, sweats, weight, fatigue, chest_pain, blood, appetite, contact])
     st.subheader(f"Your total score: {score}/35")
-   st.divider()
+    st.divider()
     if score == 0:
                  st.success(f"You reported no TB symptoms. Keep monitoring your health.")
     elif score >=23:
