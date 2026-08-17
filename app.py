@@ -70,27 +70,28 @@ col1, col2 = st.columns(2)
     # 25-point total system
 with col1:
     coughing = 2 if st.checkbox("Coughing") else 0
-    constant_cough_2weeks = 4 if st.checkbox("Constant cough for 2 weeks or more") else 0 
+    constant_cough_3weeks = 5 if st.checkbox("Persistent cough lasting up to 3 weeks or more") else 0 
     fever = 2 if st.checkbox("Fever") else 0
-    sweats = 2 if st.checkbox("Night sweats") else 0
-    weight = 2 if st.checkbox("Unexplained weight loss") else 0
+    sweats = 3 if st.checkbox("Drenching night sweats") else 0
+    weight = 4 if st.checkbox("Unexplained weight loss") else 0
 with col2:
-    fatigue = 1 if st.checkbox("Tiredness or fatigue") else 0
+    fatigue = 4 if st.checkbox("Severe fatigue with weakness") else 0
     chest_pain = 2 if st.checkbox("Often experience chest pain") else 0
-    blood_or_sputum = 4 if st.checkbox("Coughing up blood or sputum") else 0
+    blood = 6 if st.checkbox("Coughing up blood") else 0
     appetite = 2 if st.checkbox("Loss of appetite") else 0
-    contact = 4 if st.checkbox("Had recent contact with someone infected with TB") else 0
+    contact = 5 if st.checkbox("Had recent contact with someone infected with TB") else 0
         
 if st.button("calculate My Risk", type="primary"):
         
-    score = sum([coughing, constant_cough_2weeks, fever, sweats, weight, fatigue, chest_pain, blood_or_sputum, appetite, contact])
-    st.divider()
+    score = sum([coughing, constant_cough_3weeks, fever, sweats, weight, fatigue, chest_pain, blood, appetite, contact])
+    st.subheader(f"Your total score: {score}/35")
+   st.divider()
     if score == 0:
                  st.success(f"You reported no TB symptoms. Keep monitoring your health.")
-    elif score >= 20:
+    elif score >=23:
                 st.warning(f"HIGH RISK!! Please visit a clinic for TB screening as soon as possible")
-    elif score >=10:
-                st.warning(f"Moderate risk. Although you are not at high risk, you should pay attention to any new symptoms that may develop or consider visiting a clinic for TB testing.")
+    elif score >=12:
+                st.warning(f"Moderate risk. Keep monitoring and retest if symptoms change or consider visiting a clinic for TB testing.")
     else:
                  st.warning(f"Low risk. Stay aware :)")
             
